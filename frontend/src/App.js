@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, withRouter } from "react-router-dom";
+import { BrowserRouter, Route, withRouter,Routes } from "react-router-dom";
 import { db } from "./firebase-config";
 import {collection, getDocs} from "firebase/firestore"
+import Manage from "./components/Akeel/Manage";
 
 
 
@@ -21,13 +22,10 @@ function App() {
     <BrowserRouter>
     
       <div>
-        <button>Create Order</button>
-        {orders.map((order)=>{
-          return <div>
-            <h1> Name:{order.orderState}</h1>
-            <h1> Name:{order.total}</h1>
-          </div>
-        })}
+      {/* <Routes> */}
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/manage" exact component={Manage}></Route>
+        {/* </Routes> */}
 
       </div>
   
