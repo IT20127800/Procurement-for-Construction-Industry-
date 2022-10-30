@@ -1,33 +1,30 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import { db } from "./firebase-config";
-import {collection, getDocs} from "firebase/firestore"
+import {collection, getDocs, addDoc} from "firebase/firestore"
 
+import Nav from "./Component/Navbar"
+
+import SupplierRegister from "./Component/Pamitha/Supplierregister"
+import SupplierView from "./Component/Pamitha/SupplierView"
+
+import ItemInsert from "./Component/Pamitha/ItemInsert"
+import ItemView from "./Component/Pamitha/itemView"
 
 
 
 function App() {
-  const [orders,setOrders]=useState([]);
-  const OrderCollection=collection(db,"orders")
-  useEffect(()=>{
-     const getOrders=async()=>{
-      const data=await getDocs(OrderCollection)
-      setOrders(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-
-     };
-     getOrders();
-  },[])
+ 
   return (
     <BrowserRouter>
     
       <div>
-        <button>Create Order</button>
-        {orders.map((order)=>{
-          return <div>
-            <h1> Name:{order.orderState}</h1>
-            <h1> Name:{order.total}</h1>
-          </div>
-        })}
+   
+            <Route path="/sregister" exact component={SupplierRegister}></Route>
+            <Route path="/registerview" exact component={SupplierView}></Route>
+            <Route path="/iteminsert" exact component={ItemInsert}></Route>
+            <Route path="/itemview" exact component={ItemView}></Route>
+   
 
       </div>
   
