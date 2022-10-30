@@ -43,7 +43,7 @@ function Manage() {
   const OrderCollection=collection(db,"orders")
   useEffect(()=>{
      const getOrders=async()=>{
-      const data=await getDocs(OrderCollection)
+      let data=await getDocs(OrderCollection)
       setOrders(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
       for (let index=0;index<data.docs.length;index++) {
         console.log("index",index)
@@ -53,35 +53,15 @@ function Manage() {
      };
      getOrders();
   },[])
+  let DataBase=[]
+console.log(orders)
+for (let index=0;index<orders.length;index++){
+  console.log(index)
+   DataBase.push(orders[index]) 
+}
+// return DataBase;
 
-  const data = [
-    {
-      key: '1',
-      firstName: 'John',
-      lastName: 'Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    },
-    {
-      key: '2',
-      firstName: 'Jim',
-      lastName: 'Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    },
-    {
-      key: '3',
-      firstName: 'Joe',
-      lastName: 'Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    },
-  ];
-  
-  return (
+  return  (DataBase || [],
    
 
       <div>
@@ -91,27 +71,13 @@ function Manage() {
     title="Manager"
     subTitle="Dashboard"
   />
-        <Table dataSource={data}>
+        <Table dataSource={DataBase}>
     <ColumnGroup title="Name">
-      <Column title="First Name" dataIndex="firstName" key="firstName" />
-      <Column title="Last Name" dataIndex="lastName" key="lastName" />
+      <Column title="First Name" dataIndex="orderState" key="firstName" />
+      <Column title="Last Name" dataIndex="total" key="lastName" />
     </ColumnGroup>
-    <Column title="Age" dataIndex="age" key="age" />
+    <Column title="Age" dataIndex="id" key="age" />
     <Column title="Address" dataIndex="address" key="address" />
-    <Column
-      title="Tags"
-      dataIndex="tags"
-      key="tags"
-      render={(tags) => (
-        <>
-          {tags.map((tag) => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </>
-      )}
-    />
     <Column
       title="Action"
       key="action"
