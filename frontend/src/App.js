@@ -12,6 +12,8 @@ import ItemInsert from "./Component/Pamitha/ItemInsert"
 import ItemView from "./Component/Pamitha/itemView"
 
 import Purchase from "./Component/Ayeshi/Purchase"
+import MakePurchase from "./Component/Ayeshi/MakePurchase"
+
 
 
 
@@ -27,6 +29,7 @@ function App() {
             <Route path="/iteminsert" exact component={ItemInsert}></Route>
             <Route path="/itemview" exact component={ItemView}></Route>
             <Route path="/purchase" exact component={Purchase}></Route>
+            <Route path="/makepurchase" exact component={MakePurchase}></Route>
    
 
       </div>

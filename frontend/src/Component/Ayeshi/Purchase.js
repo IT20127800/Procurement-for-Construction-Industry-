@@ -41,7 +41,7 @@ for (let index=0;index<orders.length;index++){
     <Table dataSource={DataBase}>
     <ColumnGroup title="Order">
       <Column title="Item Name" dataIndex="orderState" key="firstName" />
-      <Column title="Sub Total" dataIndex="subTotal" key="lastName" />
+      <Column title="Sub Total" dataIndex="total" key="lastName" />
     </ColumnGroup>
   
     
