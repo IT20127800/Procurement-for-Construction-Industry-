@@ -11,6 +11,8 @@ import SupplierView from "./Component/Pamitha/SupplierView"
 import ItemInsert from "./Component/Pamitha/ItemInsert"
 import ItemView from "./Component/Pamitha/itemView"
 
+import Purchase from "./Component/Ayeshi/Purchase"
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
             <Route path="/registerview" exact component={SupplierView}></Route>
             <Route path="/iteminsert" exact component={ItemInsert}></Route>
             <Route path="/itemview" exact component={ItemView}></Route>
+            <Route path="/purchase" exact component={Purchase}></Route>
    
 
       </div>
