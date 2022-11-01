@@ -16,6 +16,13 @@ import SupplierView from "./Component/Pamitha/SupplierView"
 import ItemInsert from "./Component/Pamitha/ItemInsert"
 import ItemView from "./Component/Pamitha/itemView"
 
+import AllOrders from "./Component/Ayeshi/Orders/AllOrders";
+import OrderById from "./Component/Ayeshi/Orders/OrderById";
+import PurchseOrders from "./Component/Ayeshi/PurchaseOrders/PurchaseOrders";
+import PurchaseOrderByID from "./Component/Ayeshi/PurchaseOrders/PurchaseOrderByID";
+
+
+
 
 
 function App() {
@@ -45,11 +52,30 @@ function App() {
 
 
 
+
             <Route path="/shome" exact component={Footer}></Route>
             <Route path="/sregister" exact component={Footer}></Route>
             <Route path="/registerview" exact component={Footer}></Route>
             <Route path="/iteminsert" exact component={Footer}></Route>
             <Route path="/itemview" exact component={Footer}></Route>
+
+            <Route path="/allOrders" exact component={AllOrders}></Route>
+            <Route path="/allPurchaseOrders" exact component={PurchseOrders}></Route>
+            <Route
+              path="/order/:id"
+              component={(props) => (
+            <OrderById {...props} key={window.location.pathname} />
+             )}
+            />
+            <Route
+              path="/purchaseOrder/:id"
+              component={(props) => (
+                 <PurchaseOrderByID {...props} key={window.location.pathname} />
+              )}
+            />
+
+           
+
    
 
       </div>
