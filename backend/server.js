@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const multer = require('multer');
 
-
+const Register = require('./Routes/Register');
 
 
 const app = express();
@@ -17,7 +17,7 @@ app.use(cors());
 //app.use(multer());
 
 
-
+app.use(Register);
 
 
 const PORT = 8001;
