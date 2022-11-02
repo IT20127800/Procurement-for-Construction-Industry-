@@ -29,7 +29,7 @@ function nav() {
           <a href="/ManageOrders">Manager</a>
         </li>
         <li>
-          <a href="/allOrders">Site Manager</a>
+          <a href="/managerhome">Site Manager</a>
         </li>
         <li>
           <a href="/shome">Supplier</a>

@@ -82,7 +82,7 @@ function AllOrders(props) {
 
   const getOrders = async () => {
     let data = await getDocs(OrderCollection);
-    setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(order => !order.purchaseOrderCreated && order.orderState !== "Rejected"));
+    setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(order =>  order.orderState !== "Rejected"));
   };
 
   useEffect(() => {

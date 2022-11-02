@@ -21,6 +21,8 @@ import AllOrders from "./Component/Ayeshi/Orders/AllOrders";
 import OrderById from "./Component/Ayeshi/Orders/OrderById";
 import PurchseOrders from "./Component/Ayeshi/PurchaseOrders/PurchaseOrders";
 import PurchaseOrderByID from "./Component/Ayeshi/PurchaseOrders/PurchaseOrderByID";
+import managerHome from "./Component/Ayeshi/ManagerHome";
+
 import ManageOrders from "./Component/Akeel/ManageOrders"
 import ManagerId from "./Component/Akeel/ManagerId"
 
@@ -43,7 +45,8 @@ function App() {
             <Route path="/itemview" exact component={Nav}></Route>
             <Route path="/home" exact component={Nav}></Route>
             <Route path="/home" exact component={Home}></Route>
-            <Route path="/ManageOrders" exact component={Nav}></Route>
+            <Route path="/managerhome" exact component={Nav}></Route>
+            <Route path="/managerhome" exact component={managerHome}></Route>
 
             <Route path="/allOrders" exact component={Nav}></Route>
             <Route path="/allPurchaseOrders" exact component={Nav}></Route>
@@ -64,7 +67,7 @@ function App() {
             <Route path="/registerview" exact component={SupplierView}></Route>
             <Route path="/iteminsert" exact component={ItemInsert}></Route>
             <Route path="/itemview" exact component={ItemView}></Route>
-
+            
 
             <Route path="/ManageOrders" exact component={ManageOrders}></Route>
             <Route
@@ -107,6 +110,7 @@ function App() {
             <Route path="/iteminsert" exact component={Footer}></Route>
             <Route path="/itemview" exact component={Footer}></Route>
             <Route path="/home" exact component={Footer}></Route>
+            <Route path="/managerhome" exact component={Footer}></Route>
 
             <Route path="/ManageOrders" exact component={Footer}></Route>
 
