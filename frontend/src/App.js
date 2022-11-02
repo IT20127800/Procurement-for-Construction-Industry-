@@ -1,31 +1,124 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, withRouter,Routes } from "react-router-dom";
 import { db } from "./firebase-config";
-import {collection, getDocs} from "firebase/firestore"
-import Manage from "./components/Akeel/Manage";
+import {collection, getDocs, addDoc} from "firebase/firestore"
+
+import Nav from "./Component/Pamitha/Navbar"
+import Footer from "./Component/Pamitha/Footer"
+
+import Register from "./Component/Pamitha/Register"
+import Signin from "./Component/Pamitha/Signin"
+
+import SupplierHome from "./Component/Pamitha/SupplierHome"
+import SupplierRegister from "./Component/Pamitha/Supplierregister"
+import SupplierView from "./Component/Pamitha/SupplierView"
+
+import ItemInsert from "./Component/Pamitha/ItemInsert"
+import ItemView from "./Component/Pamitha/itemView"
+import Home from "./Component/Pamitha/Home"
+
+import AllOrders from "./Component/Ayeshi/Orders/AllOrders";
+import OrderById from "./Component/Ayeshi/Orders/OrderById";
+import PurchseOrders from "./Component/Ayeshi/PurchaseOrders/PurchaseOrders";
+import PurchaseOrderByID from "./Component/Ayeshi/PurchaseOrders/PurchaseOrderByID";
+import ManageOrders from "./Component/Akeel/ManageOrders"
+import ManagerId from "./Component/Akeel/ManagerId"
+
 
 
 
 
 function App() {
-  const [orders,setOrders]=useState([]);
-  const OrderCollection=collection(db,"orders")
-  useEffect(()=>{
-     const getOrders=async()=>{
-      const data=await getDocs(OrderCollection)
-      setOrders(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-
-     };
-     getOrders();
-  },[])
+ 
   return (
     <BrowserRouter>
     
       <div>
-      {/* <Routes> */}
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route path="/manage" exact component={Manage}></Route>
-        {/* </Routes> */}
+
+
+            <Route path="/shome" exact component={Nav}></Route>
+            <Route path="/sregister" exact component={Nav}></Route>
+            <Route path="/registerview" exact component={Nav}></Route>
+            <Route path="/iteminsert" exact component={Nav}></Route>
+            <Route path="/itemview" exact component={Nav}></Route>
+            <Route path="/home" exact component={Nav}></Route>
+            <Route path="/home" exact component={Home}></Route>
+            <Route path="/ManageOrders" exact component={Nav}></Route>
+
+            <Route path="/allOrders" exact component={Nav}></Route>
+            <Route path="/allPurchaseOrders" exact component={Nav}></Route>
+            <Route
+              path="/order/:id"
+              component={(props) => (
+            <Nav {...props} key={window.location.pathname} />
+             )}
+            />
+            
+
+
+            <Route path="/register" exact component={Register}></Route>
+            <Route path="/" exact component={Signin}></Route>
+
+            <Route path="/shome" exact component={SupplierHome}></Route>
+            <Route path="/sregister" exact component={SupplierRegister}></Route>
+            <Route path="/registerview" exact component={SupplierView}></Route>
+            <Route path="/iteminsert" exact component={ItemInsert}></Route>
+            <Route path="/itemview" exact component={ItemView}></Route>
+
+
+            <Route path="/ManageOrders" exact component={ManageOrders}></Route>
+            <Route
+              path="/ManageOrders/:id"
+              component={(props) => (
+            <ManagerId {...props} key={window.location.pathname} />
+             )}
+            />
+
+
+
+
+
+
+
+
+            
+
+
+
+            <Route path="/allOrders" exact component={AllOrders}></Route>
+            <Route path="/allPurchaseOrders" exact component={PurchseOrders}></Route>
+            <Route
+              path="/order/:id"
+              component={(props) => (
+            <OrderById {...props} key={window.location.pathname} />
+             )}
+            />
+            <Route
+              path="/purchaseOrder/:id"
+              component={(props) => (
+                 <PurchaseOrderByID {...props} key={window.location.pathname} />
+              )}
+            />
+
+           
+            <Route path="/shome" exact component={Footer}></Route>
+            <Route path="/sregister" exact component={Footer}></Route>
+            <Route path="/registerview" exact component={Footer}></Route>
+            <Route path="/iteminsert" exact component={Footer}></Route>
+            <Route path="/itemview" exact component={Footer}></Route>
+            <Route path="/home" exact component={Footer}></Route>
+
+            <Route path="/ManageOrders" exact component={Footer}></Route>
+
+            <Route path="/allOrders" exact component={Footer}></Route>
+            <Route path="/allPurchaseOrders" exact component={Footer}></Route>
+            <Route
+              path="/order/:id"
+              component={(props) => (
+            <Footer {...props} key={window.location.pathname} />
+             )}
+            />
+   
 
       </div>
   
