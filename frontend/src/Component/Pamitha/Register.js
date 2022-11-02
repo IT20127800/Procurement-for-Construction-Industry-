@@ -39,7 +39,7 @@ export default class Register extends Component {
         .post("http://localhost:8001/register", data)
         .then((res) => {
           alert("Registration successful!");
-          this.props.history.push(`/Signin`);
+          this.props.history.push(`/`);
           window.location.reload();
         })
         .catch((err) => {

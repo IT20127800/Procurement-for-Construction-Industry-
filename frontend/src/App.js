@@ -15,6 +15,7 @@ import SupplierView from "./Component/Pamitha/SupplierView"
 
 import ItemInsert from "./Component/Pamitha/ItemInsert"
 import ItemView from "./Component/Pamitha/itemView"
+import Home from "./Component/Pamitha/Home"
 
 import AllOrders from "./Component/Ayeshi/Orders/AllOrders";
 import OrderById from "./Component/Ayeshi/Orders/OrderById";
@@ -31,11 +32,15 @@ function App() {
     <BrowserRouter>
     
       <div>
+
+
             <Route path="/shome" exact component={Nav}></Route>
             <Route path="/sregister" exact component={Nav}></Route>
             <Route path="/registerview" exact component={Nav}></Route>
             <Route path="/iteminsert" exact component={Nav}></Route>
             <Route path="/itemview" exact component={Nav}></Route>
+            <Route path="/home" exact component={Nav}></Route>
+            <Route path="/home" exact component={Home}></Route>
 
             <Route path="/register" exact component={Register}></Route>
             <Route path="/" exact component={Signin}></Route>
@@ -58,6 +63,7 @@ function App() {
             <Route path="/registerview" exact component={Footer}></Route>
             <Route path="/iteminsert" exact component={Footer}></Route>
             <Route path="/itemview" exact component={Footer}></Route>
+            <Route path="/home" exact component={Footer}></Route>
 
             <Route path="/allOrders" exact component={AllOrders}></Route>
             <Route path="/allPurchaseOrders" exact component={PurchseOrders}></Route>
