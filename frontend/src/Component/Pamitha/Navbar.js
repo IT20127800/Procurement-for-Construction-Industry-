@@ -26,10 +26,10 @@ function nav() {
         </li>
        
         <li>
-          <a href="/allOrders">Manager</a>
+          <a href="/ManageOrders">Manager</a>
         </li>
         <li>
-          <a href="#about">Site Manager</a>
+          <a href="/allOrders">Site Manager</a>
         </li>
         <li>
           <a href="/shome">Supplier</a>

@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "firebase-config": "^0.0.2",
-    "firestore": "^1.1.6"
-  }
-}

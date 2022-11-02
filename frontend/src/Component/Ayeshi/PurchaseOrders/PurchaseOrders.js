@@ -51,7 +51,7 @@ function PurchseOrders(props) {
       <PageHeader
         className="site-page-header"
         onBack={() => props.history.push("/allOrders")}
-        title="Manager"
+        title="Site Manager"
         subTitle="Purchase Orders"
       />
       {orders.length > 0 && (
