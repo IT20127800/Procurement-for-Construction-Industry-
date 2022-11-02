@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../../firebase-config";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc,doc,deleteDoc } from "firebase/firestore";
 import "antd/dist/antd.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -11,37 +11,37 @@ const { confirm } = Modal;
 
 
 
-const showConfirm = () => {
+// const showConfirm = () => {
 
-  AOS.init();
+//   AOS.init();
 
-  confirm({
-    title: "Do you Want to Accept this Order?",
-    icon: <ExclamationCircleOutlined />,
-    onOk() {
-      console.log("OK");
-    },
-    onCancel() {
-      console.log("Cancel");
-    },
-  });
-};
-const showDeleteConfirm = () => {
-  confirm({
-    title: "Are you sure to Reject this Order?",
-    icon: <ExclamationCircleOutlined />,
+//   confirm({
+//     title: "Do you Want to Accept this Order?",
+//     icon: <ExclamationCircleOutlined />,
+//     onOk() {
+//       console.log("OK");
+//     },
+//     onCancel() {
+//       console.log("Cancel");
+//     },
+//   });
+// };
+// const showDeleteConfirm = () => {
+//   confirm({
+//     title: "Are you sure to Reject this Order?",
+//     icon: <ExclamationCircleOutlined />,
 
-    okText: "Yes",
-    okType: "danger",
-    cancelText: "No",
-    onOk() {
-      console.log("OK");
-    },
-    onCancel() {
-      console.log("Cancel");
-    },
-  });
-};
+//     okText: "Yes",
+//     okType: "danger",
+//     cancelText: "No",
+//     onOk() {
+//       console.log("OK");
+//     },
+//     onCancel() {
+//       console.log("Cancel");
+//     },
+//   });
+// };
 
 function SupplierView() {
   const [persons, setPersons] = useState([]);
@@ -54,6 +54,17 @@ function SupplierView() {
     };
     getOrders();
   }, []);
+
+  const deleteitem = async (id) => {
+    try{
+    const pitem = doc(db, "suppliers", id);
+    await deleteDoc(pitem);
+    window.location = "/registerview";
+
+    }catch(err){
+      alert(err);
+    }
+  };
 
   let DataBase = [];
   console.log(persons);
@@ -77,7 +88,7 @@ function SupplierView() {
            <h1>Suppliers Details</h1>
         </center>
 
-        <Table dataSource={DataBase} style={{marginLeft:"15rem", marginRight:"5rem"}}>
+        <Table dataSource={DataBase} pagination={false} style={{marginLeft:"15rem", marginRight:"5rem"}}>
          
           <Column title="Name" dataIndex="name" key="firstName" />
           <Column title="Address" dataIndex="address" key="lastName" />
@@ -89,26 +100,28 @@ function SupplierView() {
             key="action"
             render={(_, record) => (
               <Space wrap>
-                <Button
+                {/* <Button
                   width="140px"
                   style={{ backgroundColor: "#3b9664" }}
                   color="white"
                   onClick={showConfirm}
                 >
                   Accept
-                </Button>
+                </Button> */}
                 <Button
                   width="140px"
                   style={{ backgroundColor: "#ff4d4f" }}
                   color="white"
-                  onClick={showDeleteConfirm}
+                  onClick={() => {deleteitem(record.id)}}
                 >
-                  Reject
+                  Delete
                 </Button>
               </Space>
             )}
           />
         </Table>
+        <br/>
+        <br/>
         </div>
       </div>
     )

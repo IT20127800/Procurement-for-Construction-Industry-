@@ -49,7 +49,7 @@ function ItemInsert() {
         image: " ",
       });
       alert("Item Added Successfully");
-      
+      window.location = "/iteminsert";
   
     }catch(err){
             
@@ -102,7 +102,7 @@ function ItemInsert() {
           <br />
           <br />
           <input
-            type="text"
+            type="number"
             id="name1"
             placeholder="Enter Supplier Contact Number"
             className="input"
@@ -115,7 +115,7 @@ function ItemInsert() {
           <br />
           <input
             type="text"
-            id="name1"
+            id="id22"
             placeholder="Enter Item ID"
             className="input"
             onChange={(e) => {
@@ -127,7 +127,7 @@ function ItemInsert() {
           <br />
           <input
             type="text"
-            id="address"
+            id="iname"
             placeholder="Enter Item Name"
             className="input"
             onChange={(e) => {
@@ -139,7 +139,7 @@ function ItemInsert() {
           <br />
           <input
             type="number"
-            id="number1"
+            id="num"
             placeholder="Enter Item Price"
             className="input"
             onChange={(e) => {
@@ -151,7 +151,7 @@ function ItemInsert() {
           <br />
           <input
             type="number"
-            id="location1"
+            id="loca"
             placeholder="Enter Item Quentity"
             className="input"
             onChange={(e) => {

@@ -70,6 +70,7 @@ function ItemView() {
   const deleteitem = async (id) => {
     const pitem = doc(db, "sitem", id);
     await deleteDoc(pitem);
+    window.location = "/itemview";
   };
 
   let DataBase = [];
@@ -100,7 +101,7 @@ function ItemView() {
 
 
         <Table dataSource={DataBase} pagination={false} style={{marginLeft:"15%", marginRight:"-10rem"}}>
-        {/* <Column title="Supplier Name" dataIndex="id" key="firstName" /> */}
+
             <Column title="Supplier Name" dataIndex="supplierName" key="firstName" />
             <Column title="Supplier Phone Number" dataIndex="supplierContact" key="firstName" />
             <Column title="Item ID" dataIndex="itemID" key="firstName" />
@@ -120,6 +121,7 @@ function ItemView() {
                 >
                   Update
                 </Button> */}
+              
                 <Button
                   width="140px"
                   style={{ backgroundColor: "#ff4d4f" }}
@@ -128,10 +130,13 @@ function ItemView() {
                 >
                   Delete
                 </Button>
+               
               </Space>
             )}
           />
         </Table>
+        <br/>
+        <br/>
         </center>
       </div>
     </div>

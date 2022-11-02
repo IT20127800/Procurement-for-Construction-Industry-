@@ -34,7 +34,7 @@ function nav() {
           <a href="#about">Site Manager</a>
         </li>
         <li>
-          <a href="#about">Supplier</a>
+          <a href="/shome">Supplier</a>
         </li>
         <li>
           <a href="#about">About us</a>
