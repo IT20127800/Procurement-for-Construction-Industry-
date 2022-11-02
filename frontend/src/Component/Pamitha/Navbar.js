@@ -20,15 +20,13 @@ function nav() {
 
       <ul>
         <li>
-          <a class="active" href="#home">
+          <a class="active" href="/home">
             Home
           </a>
         </li>
+       
         <li>
-          <a href="#news">News</a>
-        </li>
-        <li>
-          <a href="#contact">Manager</a>
+          <a href="/allOrders">Manager</a>
         </li>
         <li>
           <a href="#about">Site Manager</a>
